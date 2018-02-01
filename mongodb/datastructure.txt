@@ -1,0 +1,64 @@
+
+ start server
+    mongod --dbpath /Users/Shriyan/Documents/Java-Projects/data/db/
+
+ start the client
+    mongo --host 127.0.0.1:27017
+
+ stop server from the client
+    use admin
+    db.shutdownServer()
+
+
+ db.listings.insertOne(
+    {
+        name: "Classical, pop and easy listening collection over 75 of them! - $25 Clearwater",
+        description: "Most of the covers are in very bad condition.",
+        type: "sale",
+        category: ["cds","dvds","electorics"],
+        sellerType: "owner",
+        price: "25.00",
+        quantity: "10"
+    }
+  );
+
+ db.listings.insertOne(
+      {
+          name: "Beautiful Antique Steam Age Cast Iron Treadle Sewing Machine Frames",
+          description: "My husband and I have restored and sold over 1000 antique sewing machines",
+          category: ["antiques", "machines"],
+          sellerType: "dealer",
+          price: "125.00",
+          quantity: "1"
+      }
+ );
+
+ db.listings.insertOne(
+     {
+         name: "50% off on furniture, lamps, pictures, books, sporting goods, kids toy - $1",
+         description: "50% off on furniture, lamps, pictures, books, sporting goods, kids toys, games, vcr tapes and tvs all week 1/29/18 to 2/3/18.",
+         category: ["books","magazine"],
+         sellerType: "owner",
+         price: "1.00",
+         quantity: "1"
+     }
+ );
+
+
+
+
+
+
+
+use listings
+db.createUser( { user: "admin",
+                 pwd: "admin",
+                 customData: { employeeId: 12345 },
+                 roles: [ { role: "clusterAdmin", db: "admin" },
+                          { role: "readAnyDatabase", db: "admin" },
+                          "readWrite"] },
+               { w: "majority" , wtimeout: 5000 } )
+
+
+ use listings
+ db.getUser("admin")
