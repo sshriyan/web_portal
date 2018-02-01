@@ -1,0 +1,5 @@
+greeting: Hello
+
+server:
+  context-path: /listing
+  port: 7000
