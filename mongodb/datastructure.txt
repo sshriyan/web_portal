@@ -5,43 +5,77 @@
  start the client
     mongo --host 127.0.0.1:27017
 
+
+ super user root and 27Sh22Ka
+ mongo --host 127.0.0.1:27017 -u "root" -p "27Sh22Ka" --authenticationDatabase "admin" --port 27017
+
  stop server from the client
     use admin
     db.shutdownServer()
 
 
+
+db.createUser(
+   {
+     user: "admin",
+     pwd: "admin",
+     roles: [ "readWrite"  ]
+   }
+);
+
+
+
+
+ {
+         title: "Classical, pop and easy listening collection over 75 of them! - $25 Clearwater",
+         details: "Most of the covers are in very bad condition.",
+         category: ["cds","dvds","electronics"],
+         price: "25.00"
+ }
+
+
+ {
+         title: "Beautiful Antique Steam Age Cast Iron Treadle Sewing Machine Frames",
+         details: "My husband and I have restored and sold over 1000 antique sewing machines",
+         category: ["antiques", "machines"],
+         price: "125.00"
+ }
+
+ {
+         title: "50% off on furniture, lamps, pictures, books, sporting goods, kids toy - $1",
+         details: "50% off on furniture, lamps, pictures, books, sporting goods, kids toys, games, vcr tapes and tvs all week 1/29/18 to 2/3/18.",
+         sellerType: "owner",
+         price: "500.00"
+ }
+
+
+ use listings_db
+
  db.listings.insertOne(
     {
-        name: "Classical, pop and easy listening collection over 75 of them! - $25 Clearwater",
-        description: "Most of the covers are in very bad condition.",
-        type: "sale",
-        category: ["cds","dvds","electorics"],
-        sellerType: "owner",
-        price: "25.00",
-        quantity: "10"
+           title: "Classical, pop and easy listening collection over 75 of them! - $25 Clearwater",
+           details: "Most of the covers are in very bad condition.",
+           category: ["cds","dvds","electorics"],
+           price: "25.00"
     }
   );
 
  db.listings.insertOne(
       {
-          name: "Beautiful Antique Steam Age Cast Iron Treadle Sewing Machine Frames",
-          description: "My husband and I have restored and sold over 1000 antique sewing machines",
+          title: "Beautiful Antique Steam Age Cast Iron Treadle Sewing Machine Frames",
+          details: "My husband and I have restored and sold over 1000 antique sewing machines",
           category: ["antiques", "machines"],
-          sellerType: "dealer",
-          price: "125.00",
-          quantity: "1"
+          price: "125.00"
       }
  );
 
  db.listings.insertOne(
-     {
-         name: "50% off on furniture, lamps, pictures, books, sporting goods, kids toy - $1",
-         description: "50% off on furniture, lamps, pictures, books, sporting goods, kids toys, games, vcr tapes and tvs all week 1/29/18 to 2/3/18.",
-         category: ["books","magazine"],
+    {
+         title: "50% off on furniture, lamps, pictures, books, sporting goods, kids toy - $1",
+         details: "50% off on furniture, lamps, pictures, books, sporting goods, kids toys, games, vcr tapes and tvs all week 1/29/18 to 2/3/18.",
          sellerType: "owner",
-         price: "1.00",
-         quantity: "1"
-     }
+         price: "500.00"
+    }
  );
 
 
@@ -62,3 +96,20 @@ db.createUser( { user: "admin",
 
  use listings
  db.getUser("admin")
+
+
+ Rabit MQ
+ Management Plugin enabled by default at http://localhost:15672
+
+ Bash completion has been installed to:
+   /usr/local/etc/bash_completion.d
+
+ To have launchd start rabbitmq now and restart at login:
+   brew services start rabbitmq
+ Or, if you don't want/need a background service you can just run:
+   rabbitmq-server
+
+brew services start rabbitmq
+
+   user and pwd
+   http://localhost:15672 - RabbitMq management (default login/password: guest/guest)

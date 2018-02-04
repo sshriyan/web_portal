@@ -6,7 +6,7 @@ zuul:
 
   routes:
     listing-service:
-        path: /listings/**
+        path: /listing/**
         serviceId: listing-service
         stripPrefix: false
         sensitiveHeaders:

@@ -5,3 +5,6 @@ spring:
     config:
       uri: http://localhost:8888
       fail-fast: true
+
+          # This ends up as the service name in zipkin
+

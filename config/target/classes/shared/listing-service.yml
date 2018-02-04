@@ -1,5 +1,18 @@
 greeting: Hello
 
+security:
+  basic:
+    enabled: false
+
 server:
   context-path: /listing
   port: 7000
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: admin
+      password: admin
+      database: listing_db
+      port: 27017
