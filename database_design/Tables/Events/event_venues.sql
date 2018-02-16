@@ -1,0 +1,22 @@
+CREATE TABLE `events_db`.`event_venues` (
+ `event_venue_id` INT NOT NULL AUTO_INCREMENT,
+ `name` varchar(128) DEFAULT NULL,
+ `address` varchar(200) DEFAULT NULL,
+ `city` varchar(60) NOT NULL,
+ `state` varchar(2) ,
+ `region` varchar(50),
+ `zip` varchar(5) ,
+ `country` varchar(50) NOT NULL,
+ `status` varchar(10) DEFAULT NULL,
+ `contact` varchar(50) NOT NULL,
+ `business_hours` varchar(50) NOT NULL,
+ `primary_phone` varchar(15),
+ `secondary_phone` varchar(15),
+ `fax` varchar(15) ,
+ `email` varchar(100),
+ `url` varchar(100),
+ `instagram` varchar(100),
+ `facebook` varchar(100),
+ `twitter` varchar(100),
+   PRIMARY KEY (`event_venue_id`)
+);

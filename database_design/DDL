@@ -1,0 +1,93 @@
+CREATE SCHEMA `registered_users_db` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA `events_db` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA `real_estate_db` DEFAULT CHARACTER SET utf8 ;
+
+CREATE SCHEMA `geo_regions_db` DEFAULT CHARACTER SET utf8 ;
+
+/***********************************************/
+CREATE SCHEMA `listings_db` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE `listings_db`.`listings` (
+  `listing_id` INT NOT NULL AUTO_INCREMENT,
+  `summary` varchar(128) DEFAULT NULL,
+  `detail` varchar(300) DEFAULT NULL,
+  `price` varchar(20) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  `created_by` varchar(100) NOT NULL,
+  `city` varchar(60) NOT NULL,
+  `state` varchar(2) ,
+  `region` varchar(50),
+  `country` varchar(50) NOT NULL,
+  `created_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`listing_id`)
+);
+
+CREATE TABLE `listings_db`.`listing_types` (
+  `listing_type_id` SMALLINT NOT NULL AUTO_INCREMENT,
+  `listing_type` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`listing_type_id`)
+) ;
+
+/***********************************************/
+
+CREATE SCHEMA `business_directory_db` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE `business_directory_db`.`business_listings` (
+  `business_listing_id` INT NOT NULL AUTO_INCREMENT,
+  `business_name` varchar(128) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `city` varchar(60) NOT NULL,
+  `state` varchar(2) ,
+  `region` varchar(50),
+  `country` varchar(50) NOT NULL,
+  `business_contact` varchar(50) NOT NULL,
+  `business_hours` varchar(50) NOT NULL,
+  `primary_phone` varchar(15),
+  `secondary_phone` varchar(15),
+  `email` varchar(100),
+  `url` varchar(100),
+  `instagram` varchar(100),
+  `facebook` varchar(100),
+  `twitter` varchar(100),
+  `created_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`listing_id`)
+);
+
+CREATE TABLE `business_directory_db`.`business_types` (
+  `business_type_id` SMALLINT NOT NULL AUTO_INCREMENT,
+  `business_type` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`business_type_id`)
+);
+
+CREATE TABLE `business_directory_db`.`business_reviews` (
+  `business_review_id` INT NOT NULL AUTO_INCREMENT,
+  `business_listing_id` INT,
+  `comment` varchar(255) DEFAULT NULL,
+  `created_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `commented_by` varchar(255),
+  PRIMARY KEY (`business_review_id`)
+);
+
+CREATE TABLE `business_directory_db`.`business_listing_types_rel` (
+  `business_listing_id` INT NOT NULL,
+  `business_type_id` SMALLINT NOT NULL,
+  PRIMARY KEY (`business_listing_id`,`business_type_id`)
+);
+
+
+/***********************************************/
+CREATE SCHEMA `travel_db` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE `travel_db`.`business_reviews` (
+  `business_review_id` INT NOT NULL AUTO_INCREMENT,
+  `business_listing_id` INT,
+  `comment` varchar(255) DEFAULT NULL,
+  `created_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `commented_by` varchar(255),
+  PRIMARY KEY (`business_review_id`)
+);

@@ -1,0 +1,1 @@
+CREATE SCHEMA `events_db` DEFAULT CHARACTER SET utf8 ;
