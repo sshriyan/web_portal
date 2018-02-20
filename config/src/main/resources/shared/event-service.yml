@@ -1,0 +1,23 @@
+security:
+  basic:
+    enabled: false
+
+server:
+  context-path: /events
+  port: 7002
+
+spring:
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: validate
+      show-sql: true
+
+  datasource:
+    url: jdbc:mysql://shriyan-aws-mysql.cdk6pcalof6t.us-east-2.rds.amazonaws.com:3306/events_db?useSSL=false
+    username: sshriyan
+    password: 143~kalum-2018
+    driver-class-name: com.mysql.jdbc.Driver
+    validation-query: SELECT 1
+    max-active: 10
+    max-idle: 5
